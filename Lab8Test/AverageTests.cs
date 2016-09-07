@@ -16,6 +16,18 @@ namespace Lab8Test
             BattingSheet[2] = 0;
             BattingSheet[4] = 0;
             BattingSheet[5] = 0;
+            int makes = 0;
+            int res = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                res = res + BattingSheet[i];
+                if (res >= 1)
+                { makes++; }
+            }
+            double average = Program.BatAverage(5, makes);
+            double slugg = Program.SlugPercent(res, 5);
+            Assert.AreEqual(0, average);
+            //Assert.AreEqual(0, slugg);
             //double average = Program.;
         }
         [TestMethod]
@@ -27,7 +39,7 @@ namespace Lab8Test
             //battingSheet[2] = 2;
             //battingSheet[3] = 4;
             //battingSheet[4] = 1;
-            double average = Program.BatAverage(5,3);
+            double average = Program.BatAverage(5, 3);
             Assert.AreEqual(0.6, average);
         }
     }

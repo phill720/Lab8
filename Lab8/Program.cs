@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab8_batting
 {
@@ -12,15 +8,15 @@ namespace Lab8_batting
         {
             Console.Write("Welcome to Batting Average Calculator!\nEnter number of times at bat:\t");
             int BatTimes = int.Parse(Console.ReadLine());
-            Console.WriteLine("0 = out, 1 = single, 2 = double, 3 = triple, 4 = home run");
+            Console.WriteLine("\nEnter 'OUT', 'SINGLE', 'DOUBLE', 'TRIPLE', or 'HOMERUN' \n");
             int slug = 0;
             int makes = 0;
             for (int count = 0; count < BatTimes; count++)
             {
                 Console.Write($"Result for at-bat {count}:\t");
-                int res = int.Parse(Console.ReadLine());
-                slug = slug + res;
-                if (res >= 1)
+                string res = Console.ReadLine();
+                slug = slug + Result.BasesEarned(res);
+                if (Result.BasesEarned(res) >= 1)
                 {
                     makes++;
                 }
